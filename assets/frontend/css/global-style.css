@@ -1,0 +1,247 @@
+html, body {
+	height: 100%;
+}
+body {
+	margin: 0 auto;
+	color: #555555;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 17px;
+	background: url(../img/blkbg.png);
+	background-repeat: repeat-x;
+	background-position: center center;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+a {
+	color: #297298;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+	transition: all 0.20s linear 0s;
+}
+a:focus {
+	outline: none;
+}
+a img {
+	border: 0;
+}
+/* Code for Select bg color with color */
+::-moz-selection {
+    color: #fff;
+    background: #428bca;
+}
+::selection {
+    color: #fff;
+    background: #428bca;
+}
+h1, h1 a {
+	color: #404040;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 30px;
+	font-weight: normal;
+	margin: 0;
+}
+h2, h2 a {
+	color: #010000;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 40px;
+	font-weight: 500;
+	margin: 0;
+}
+h3, h3 a {
+	color: #404040;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 24px;
+	font-weight: normal;
+	margin: 0;
+}
+h4, h4 a {
+	color: #404040;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 22px;
+	font-weight: normal;
+	margin: 0;
+}
+h5, h5 a {
+	color: #404040;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 20px;
+	font-weight: normal;
+	margin: 0;
+}
+h6, h6 a {
+	color: #404040;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+	margin: 0;
+}
+p, ul, ol {
+	color: #909090;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	margin: 0 0 15px 0;
+	line-height: 24px;
+}
+hr {
+	background-color: #281e69;
+	border: 0 none;
+	height: 1px;
+}
+.wrapper {
+min-height: 100%;
+margin-bottom: -90px;
+width: 90%;
+margin: 0 auto;
+text-align: center;
+}
+.wrapper:after {
+	content: "";
+	display: block;
+}
+.footerWide, .wrapper:after {
+/*	height: 90px;*/
+}
+table {
+	border-spacing: 0 !important;
+}
+/*-------------------------FORM STYLE START---------------------*/
+.formStyle label {
+	font-family: 'Work Sans', sans-serif;
+	font-size: 16px;
+	color: #9c9b9b;
+	font-weight: normal;
+	margin: 0;
+}
+.formStyle input[type="submit"],
+.formStyle input[type="button"],
+.formStyle input[type="reset"],
+.formStyle button[type="submit"],
+.formStyle button[type="reset"] {
+	background-color: #428bca;
+	border: none;
+	color: #ffffff;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 15px;
+	padding: 6px 28px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.formStyle input[type="submit"]:hover,
+.formStyle input[type="button"]:hover,
+.formStyle input[type="reset"]:hover,
+.formStyle button[type="submit"]:hover,
+.formStyle button[type="reset"]:hover {
+	color: #ffffff;
+	cursor: pointer;
+	background-color: #499ae0;
+}
+.formStyle input[type="text"],
+.formStyle input[type="email"],
+.formStyle input[type="number"],
+.formStyle input[type="tel"],
+.formStyle input[type="password"],
+.formStyle textarea,
+.formStyle select {
+	background-color: #ffffff;
+	border: 1px solid #b6bbc1;
+	padding: 8px 10px;
+	height: auto;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	color: #727171;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+}
+.formStyle textarea {
+	resize: none;
+}
+.checkbox .cr,
+.radio .cr {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #a9a9a9;
+    border-radius: .25em;
+    width: 1.3em;
+    height: 1.3em;
+    float: left;
+    margin-right: .5em;
+}
+
+.radio .cr {
+    border-radius: 50%;
+}
+
+.checkbox .cr .cr-icon,
+.radio .cr .cr-icon {
+    position: absolute;
+    font-size: .8em;
+    line-height: 0;
+    top: 50%;
+    left: 20%;
+}
+
+.radio .cr .cr-icon {
+    margin-left: 0.04em;
+}
+
+.checkbox label input[type="checkbox"],
+.radio label input[type="radio"] {
+    display: none;
+}
+
+.checkbox label input[type="checkbox"] + .cr > .cr-icon,
+.radio label input[type="radio"] + .cr > .cr-icon {
+    transform: scale(3) rotateZ(-20deg);
+    opacity: 0;
+    transition: all .3s ease-in;
+}
+
+.checkbox label input[type="checkbox"]:checked + .cr > .cr-icon,
+.radio label input[type="radio"]:checked + .cr > .cr-icon {
+    transform: scale(1) rotateZ(0deg);
+    opacity: 1;
+}
+
+.checkbox label input[type="checkbox"]:disabled + .cr,
+.radio label input[type="radio"]:disabled + .cr {
+    opacity: .5;
+}
+.newChk label::before{ display: none;}
+.browseBg .input-group-btn {
+    padding: 1px 20px;
+    margin: 0;
+    background-color: #c9cdd0;
+    color: #4b4b4b;
+    font-size: 15px;
+    font-weight: 400;
+    position: absolute;
+    z-index: 99;
+    left: 0;
+    display: inline-table;
+}
+.browseBg input[type=text] {
+    width: 100%;
+    text-indent: 112px;
+}
+.browseBg .bootstrap-filestyle{ width: 100%;}
+select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: url("../img/selectarrow.png") 97% / 12px no-repeat #fff;
+        padding-right: 20px;
+}
+/*-------------------------FORM STYLE END-----------------------*/

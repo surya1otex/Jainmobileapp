@@ -1,0 +1,46 @@
+/*Medium device (LG)*/
+@media (max-width: 1300px) {
+   
+}
+
+/*Medium device (MD)*/
+@media (max-width: 1199px) {
+
+}
+@media (min-width: 992px) {
+
+}
+/*Small device (SD)*/
+@media (max-width: 991px) {
+
+}
+@media (max-width: 767px) {	
+.sploffers img{margin:5px 0;}
+}
+
+@media (max-width: 600px) {	
+.mid_usercode h3{margin-top:5px; font-size:20px;}
+.mid_usercode{width:60%;}
+.estate{float:none; margin-top:0 !important;}
+
+}
+@media (max-width: 570px) {
+	.rotate_jains{margin-top: 0;
+margin-left: 0;
+width: 100%; rotate: 0deg;}
+.mid_usercode {
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+	margin:10px 0;
+}
+.proright_logo{width:100%;}
+.acctab ul li{display:block; width:auto; text-align:center;}
+}
+
+@media (max-width: 480px) {
+	.profile_tab ul li{width:100%;}
+}
+
+@media (max-width: 360px) {
+}
