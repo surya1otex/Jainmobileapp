@@ -51,7 +51,7 @@
                     <tr>
                          <td><?php echo $i ?></td>
                         <td><?php echo $record->email ?></td>
-                        <td>$<?php echo $record->amount ?></td>
+                        <td>₹ <?php echo $record->amount ?></td>
                         <td><?php echo $record->title ?></td>
                         <td><?php echo $record->description ?></td>
                         <td><?php echo date("d-m-Y", strtotime($record->date_added)) ?></td>

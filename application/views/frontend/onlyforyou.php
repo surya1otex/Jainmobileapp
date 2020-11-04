@@ -25,7 +25,7 @@ foreach($useronlyforyou as $onlyforyou) { ?>
 <?php echo $onlyforyou->product_feature ?>) - <?php echo $onlyforyou->product_desc ?></h3>
 <p>IMEI No. <strong><?php echo $onlyforyou->imei ?></strong></p>
 <p>Purchase Amount:  <strong class="price">₹ <?php echo $onlyforyou->onlyforyou_price ?></strong><br>
-Purchase Date:	  <strong><?php echo date("d-M-Y", strtotime($onlyforyou->date_added)) ?></strong><span>Redeem Points:  <strong><?php echo $onlyforyou->redeem ?></strong></span></p>
+Purchase Date:	  <strong><?php echo date("d-M-Y", strtotime($onlyforyou->date_added)) ?></strong><span>Earn Points:  <strong><?php echo $onlyforyou->redeem ?></strong></span></p>
 
 </div>
 <br class="clr">

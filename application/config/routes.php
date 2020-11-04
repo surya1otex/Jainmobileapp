@@ -102,7 +102,7 @@ $route['deletepurchasehistory'] = "purchasehistory/deletepurchasehistory";
 $route['deletesalessummery'] = "salessummery/deletesalessummery";
 
 
-/*pagination*/
+/*admin pagination*/
 
 $route['pricedrop/(:num)'] = "pricedrop/index/$1";
 $route['specialoffer/(:num)'] = "specialoffer/index/$1";
@@ -111,6 +111,20 @@ $route['redeemgift/(:num)'] = "redeemgift/index/$1";
 $route['notification/(:num)'] = "notification/index/$1";
 $route['purchasehistory/(:num)'] = "purchasehistory/index/$1";
 $route['salessummery/(:num)'] = "salessummery/index/$1";
+$route['feedback/(:num)'] = "feedback/index/$1";
+
+
+/* frontend  pagination  */
+
+
+$route['userNotifications/(:num)'] = "Frontend/userNotifications/index/$1";
+$route['userSalessummary/(:num)'] = "Frontend/userSalessummary/index/$1";
+$route['userPayoutsummary/(:num)'] = "Frontend/userPayoutsummary/index/$1";
+$route['userSpecialoffers/(:num)'] = "Frontend/userSpecialoffers/index/$1";
+$route['userPricedrop/(:num)'] = "Frontend/userPricedrop/index/$1";
+$route['userRedeemgift/(:num)'] = "Frontend/userRedeemgift/index/$1";
+$route['userOnlyforyou/(:num)'] = "Frontend/userOnlyforyou/index/$1";
+
 
 
 /* End of file routes.php */
@@ -130,7 +144,8 @@ $route['userProfile'] = "Frontend/UserProfile";
 $route['userRedeemgift'] = "Frontend/UserRedeemgift";
 $route['userSalessummary'] = "Frontend/UserSalessummary";
 $route['userSpecialoffers'] = "Frontend/UserSpecialoffers";
-
+$route['userFeedback'] = "Frontend/UserFeedback";
+$route['sendfeedback'] = "Frontend/UserFeedback/sendfeedback";
 
 $route['registeruser'] = "Frontend/UserRegistration/register";
 $route['successregister'] = "Frontend/UserRegistration/successregister";
@@ -139,6 +154,10 @@ $route['logoutuser'] = "Frontend/UserLogin/logout";
 $route['searchsales'] = "Frontend/UserSalessummary/search";
 
 
-
+$route['userFeedback'] = "Frontend/UserFeedback";
+$route['updateaccount'] = "Frontend/UserMyaccount/updateprofile";
+$route['termsconditions'] = "Frontend/UserTermcondition";
+$route['changemypassword'] = "Frontend/Changepassword";
+$route['updatepassword'] = "Frontend/Changepassword/changePassword";
 
 

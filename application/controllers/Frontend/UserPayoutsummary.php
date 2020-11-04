@@ -24,7 +24,7 @@ $userid=$this->session->userdata('userid');
 
             $count = $this->UserPayoutsummery_model->purchaseListingCount($userid);
 
-            $returns = $this->paginationCompress("purchasehistory/", $count, 10);
+            $returns = $this->paginationCompress("userPayoutsummary/", $count, 10);
 
             $data['purchaseRecords'] = $this->UserPayoutsummery_model->purchaselisting($userid, $returns["page"], $returns["segment"]);
 

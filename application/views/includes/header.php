@@ -160,6 +160,18 @@
                 <span>Notifications</span>
               </a>
             </li>
+            <li>
+              <a href="<?php echo base_url(); ?>feedback" >
+                <i class="fa fa-comments"></i>
+                <span>Feedbacks</span>
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo base_url(); ?>Termcondition" >
+                <i class="fa fa-comments"></i>
+                <span>Terms & Conditions</span>
+              </a>
+            </li>
             <!--  <li class="treeview">
               <a href="#">
                 <i class="fa fa-share"></i> <span>Multilevel</span>

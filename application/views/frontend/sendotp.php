@@ -39,19 +39,16 @@ if($success) { ?>
 ?>
 <!--<p><?php //echo validation_errors() ?></p>!-->
 <div class="login_midsec">
-<form action="<?php echo base_url(); ?>loginuser" method="post">
+<form action="<?php echo base_url(); ?>otp" method="post">
+
 <div class="frm_div">
-<label>User Mobile No</label>
-<input name="mobile" type="text" required="required" placeholder="Enter your user mobile..">
+<label>Enter Otp</label>
+<input name="otp" type="password" required="required" placeholder="OTP">
 </div>
-<div class="frm_div">
-<label>Password</label>
-<input name="password" type="password" required="required" placeholder="password">
-</div>
-<div class="frm_div login_rembtxt"><input name="" type="checkbox" value=""> Remember Password</div>
-<input name="" type="submit" value="Login">
-<p class="for_pass">Forgot Password?</p>
-<a href="<?php echo base_url(); ?>userRegistration" class="creat_accbutt">Create An Account</a>
+
+<input name="" type="submit" value="Send">
+
+
 </form>
 </div>
 <!-- body mid end-->

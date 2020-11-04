@@ -32,11 +32,12 @@
 <!-- Profile click !-->
 <div class="menu" style="display:none;">
 <ul>
-<li><span><img src="<?php echo base_url(); ?>assets/frontend/img/menu_icon1.png" alt=""></span><a href="#" class="active"><?php echo $userprofile->name ?>’s Home</a></li>
-<li><span><img src="<?php echo base_url(); ?>assets/frontend/img/menu_icon2.png" alt=""></span><a href="#">Call To Us</a></li>
-<li><span><img src="<?php echo base_url(); ?>assets/frontend/img/menu_icon3.png" alt=""></span><a href="#">Change Password</a></li>
-<li><span><img src="<?php echo base_url(); ?>assets/frontend/img/menu_icon4.png" alt=""></span><a href="#">Terms & Conditions</a></li>
-<li><span><img src="<?php echo base_url(); ?>assets/frontend/img/menu_icon5.png" alt=""></span><a href="<?php echo base_url(); ?>userMyaccount">Submit Feedback</a></li>
+<li><span><img src="<?php echo base_url(); ?>assets/frontend/img/menu_icon1.png" alt=""></span>
+	<a href="<?php echo base_url(); ?>userMyaccount" class="active"><?php echo $userprofile->name ?>’s Home</a></li>
+<li><span><img src="<?php echo base_url(); ?>assets/frontend/img/menu_icon2.png" alt=""></span><a href="tel:+1-847-555-5555">Call To Us</a></li>
+<li><span><img src="<?php echo base_url(); ?>assets/frontend/img/menu_icon3.png" alt=""></span><a href="<?php echo base_url(); ?>changemypassword">Change Password</a></li>
+<li><span><img src="<?php echo base_url(); ?>assets/frontend/img/menu_icon4.png" alt=""></span><a href="<?php echo base_url(); ?>termsconditions">Terms & Conditions</a></li>
+<li><span><img src="<?php echo base_url(); ?>assets/frontend/img/menu_icon5.png" alt=""></span><a href="<?php echo base_url(); ?>userFeedback">Submit Feedback</a></li>
 </ul>
 </div>
 <!-- end of click button !-->

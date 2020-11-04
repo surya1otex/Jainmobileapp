@@ -4,7 +4,7 @@ if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 require APPPATH . '/libraries/BaseController.php';
 
-class UserMyaccount  extends BaseController//extends CI_Controller
+class UserFeedback  extends BaseController//extends CI_Controller
 {
     /**
      * This is default constructor of the class
@@ -12,14 +12,12 @@ class UserMyaccount  extends BaseController//extends CI_Controller
     public function __construct(){
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->model('User_model');
-        $this->load->model('Frontend/UserPayoutsummery_model');
-        //$this->load->model('Frontend/Myaccount_model');
+        $this->load->model('Frontend/Feedback_model');
     }
 
     public function index(){
 
-        $this->global['pageTitle'] = 'My Account';
+        $this->global['pageTitle'] = 'Send Feedback';
 
 
        $isLoggedIn = $this->session->userdata('userloggedin');
@@ -33,17 +31,17 @@ class UserMyaccount  extends BaseController//extends CI_Controller
 
        $id= $this->session->userdata('userid');
 
-       $data['userprofile'] = $this->User_model->getUserInfo($id);
-       $data['payoutlists'] = $this->UserPayoutsummery_model->payoutlists($id);
-       $this->loadfrontViews("frontend/myaccount", $this->global, NULL , NULL, $data);
+       //echo $id;
+
+       $data['userprofile'] = $this->Feedback_model->getUserInfo($id);
+
+       $data['payoutlists'] = $this->Feedback_model->payoutlists($id);
+       $data['purchasehistory'] = $this->Feedback_model->totalpurchase($id);
+       $data['redeemammount'] = $this->Feedback_model->totalredeem($id);
+       $this->loadfrontViews("frontend/feedback", $this->global, NULL , NULL, $data);
 
       }
         
-    }
-
-    function updateprofile() {
-
-
     }
 
     function sendfeedback() {
@@ -60,7 +58,7 @@ class UserMyaccount  extends BaseController//extends CI_Controller
                 $feedbackInfo['date_added'] = date('Y-m-d H:i:s');
                 $feedbackInfo['date_modified'] = date('Y-m-d H:i:s');
 
-                $result = $this->Myaccount_model->send($feedbackInfo);
+                $result = $this->Feedback_model->send($feedbackInfo);
 
                 if ($result > 0) {
                     $this->session->set_flashdata('success', 'Feedback Sent Successfully');
@@ -68,7 +66,7 @@ class UserMyaccount  extends BaseController//extends CI_Controller
                     $this->session->set_flashdata('error', ' Error sending feedback');
                 }
             
-                redirect('userMyaccount');
+                $this->index();
               }
 
 

@@ -27,6 +27,7 @@ class UserLogin  extends BaseController//extends CI_Controller
         if(!isset($isLoggedIn) || $isLoggedIn != TRUE)
         {
               $this->loadView("frontend/login");
+              
         }
         else
         {
@@ -71,6 +72,7 @@ class UserLogin  extends BaseController//extends CI_Controller
                 $this->session->set_flashdata('error', 'Email or password mismatch');
                 
                 $this->index();
+                 redirect ( 'userLogin' );
                 //echo 'error';
             }
         }

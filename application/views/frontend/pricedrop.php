@@ -14,7 +14,7 @@
 <h3><?php echo $record->product_name ?> (<?php echo $record->feature ?>) – <?php echo $record->description ?></h3>
 <p>Date: <strong><?php echo date("d-M-Y", strtotime($record->date_added)) ?></strong></p>
 <p>Price: <strong class="price">$<?php echo $record->price ?></strong>
-<span>Drop Price: <strong class="price">$<?php echo $record->drop_price ?></strong></span></p>
+<span>Drop Price: <strong class="price">₹ <?php echo $record->drop_price ?></strong></span></p>
 
 </div>
 <br class="clr"></div>
@@ -24,5 +24,5 @@
                     }
                     ?>
 
-
+<?php echo $this->pagination->create_links(); ?>
 </div>

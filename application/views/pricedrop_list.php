@@ -54,8 +54,8 @@
                         <td><?php echo $record->name ?></td>
                         <td><?php echo $record->product_name ?></td>
                         <td><img src="<?php echo base_url();?>uploads/photos/large/<?php echo $record->product_image ?>" width="100"/></td>
-                        <td>$<?php echo $record->price ?></td>
-                        <td>$<?php echo $record->drop_price ?></td>
+                        <td>₹ <?php echo $record->price ?></td>
+                        <td>₹ <?php echo $record->drop_price ?></td>
                         <td><?php echo $record->feature ?></td>
                         <td><?php echo $record->description ?></td>
                          <td><?php echo date("d-m-Y", strtotime($record->date_added)) ?></td>

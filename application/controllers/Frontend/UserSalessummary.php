@@ -48,7 +48,9 @@ $userid=$this->session->userdata('userid');
        $todate = $this->input->post('todate');
 
        //echo $fromdate;
-
+       $this->load->library('pagination');
+       
+       
        $data['userRecords'] = $this->UserSalessummery_model->searchdates($userid,$fromdate,$todate);
        $data['todate'] = $todate;
        $data['fromdate'] = $fromdate;

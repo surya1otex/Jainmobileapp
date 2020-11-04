@@ -31,7 +31,7 @@ class UserRedeemgift  extends BaseController//extends CI_Controller
             $this->load->library('pagination');
 
             $count = $this->Redeemgift_model->redeemListingCount();
-            $returns = $this->paginationCompress("userRedeemgift/", $count, 3);
+            $returns = $this->paginationCompress("userRedeemgift/", $count, 10);
 
         $userid = $this->session->userdata('userid');
         $data['redeemgift'] = $this->Redeemgift_model->redeemgiftListing($userid, $returns["page"], $returns["segment"]);

@@ -31,6 +31,17 @@ class UserPayoutsummery_model extends CI_Model {
         return $result;
     }
 
+    function payoutlists($userid) {
+        $this->db->select('*');
+        $this->db->from('tbl_purchase_history as BaseTbl');
+        $this->db->where('BaseTbl.user_id', $userid);
+        $this->db->order_by('BaseTbl.purchasehistory_id', 'DESC');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+       
+    }
+
    function totalpayout($userid) {
      $this->db->select_sum('amount');
      $this->db->where('tbl_purchase_history.user_id', $userid);

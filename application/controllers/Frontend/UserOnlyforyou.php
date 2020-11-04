@@ -32,7 +32,7 @@ class UserOnlyforyou  extends BaseController//extends CI_Controller
          $this->load->library('pagination');
 
          $count = $this->Onlyforyou_model->onlyforyouListingCount();
-         $returns = $this->paginationCompress("userOnlyforyou/", $count, 2);
+         $returns = $this->paginationCompress("userOnlyforyou/", $count, 10);
 
 
         $userid = $this->session->userdata('userid');

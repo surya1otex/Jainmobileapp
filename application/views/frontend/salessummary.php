@@ -9,9 +9,9 @@ if($fromdate) { ?>
 <?php
 }
 ?>
-<option value="2017">2017</option>
-<option value="2018">2018</option>
-<option value="2019">2019</option>
+<?php for($y=2020 ;$y<2121; $y++){ ?>
+<option value="<?php echo $y;?>"><?php echo $y;?></option>
+<?php }?>
 </select>
 <select name="todate">
 <?php
@@ -20,15 +20,16 @@ if($todate) { ?>
 <?php
 }
 ?>
-<option value="2018">2018</option>
-<option value="2019">2019</option>
-<option value="2020">2020</option>
+<?php for($y=2020 ;$y<2121; $y++){ ?>
+<option value="<?php echo $y;?>"><?php echo $y;?></option>
+<?php }?>
+
 </select>
 <input name="" type="submit" value="Go">
 </form>
 </div>
 <div class="notf_mid sales">
-<h2>Total Sellout <span>$ <?php if($totalsummery) { echo $totalsummery; } ?></span></h2>
+<h2>Total Sellout <span>₹  <?php if($totalsummery) { echo $totalsummery; } ?></span></h2>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="salestab">
   <tr>
     <th align="left" valign="middle">Model</th>
@@ -44,42 +45,13 @@ if($todate) { ?>
   <tr>
     <td align="left" valign="middle"><?php echo $record->model ?></td>
     <td align="left" valign="middle"><?php echo $record->unit ?></td>
-    <td align="left" valign="middle">$<?php echo $record->amount ?></td>
+    <td align="left" valign="middle">₹ <?php echo $record->amount ?></td>
   </tr>
     <?php
                        $i++;  }
                     }
                     ?>
-<!--  <tr>
-    <td align="left" valign="middle">SQ012345</td>
-    <td align="left" valign="middle">01</td>
-    <td align="left" valign="middle">10,000</td>
-  </tr>
-  <tr>
-    <td align="left" valign="middle">SQ012345</td>
-    <td align="left" valign="middle">01</td>
-    <td align="left" valign="middle">10,000</td>
-  </tr>
-  <tr>
-    <td align="left" valign="middle">SQ012345</td>
-    <td align="left" valign="middle">01</td>
-    <td align="left" valign="middle">10,000</td>
-  </tr>
-  <tr>
-    <td align="left" valign="middle">SQ012345</td>
-    <td align="left" valign="middle">01</td>
-    <td align="left" valign="middle">10,000</td>
-  </tr>
-  <tr>
-    <td align="left" valign="middle">SQ012345</td>
-    <td align="left" valign="middle">01</td>
-    <td align="left" valign="middle">10,000</td>
-  </tr>
-  <tr>
-    <td align="left" valign="middle">SQ012345</td>
-    <td align="left" valign="middle">01</td>
-    <td align="left" valign="middle">10,000</td>
-  </tr>-->
+
 </table>
 
-</div>
+</div><?php echo $this->pagination->create_links(); ?>

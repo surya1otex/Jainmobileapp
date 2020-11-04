@@ -57,7 +57,7 @@
                     <tr>
                         <td><?php echo $i ?></td>
                         <td><?php echo $record->name ?></td>
-                        <td>$<?php echo $record->onlyforyou_price ?></td>
+                        <td>₹ <?php echo $record->onlyforyou_price ?></td>
                         <td><img src="<?php echo base_url(); ?>uploads/photos/onlyforyou/<?php
                          echo $record->onlyforyou_image ?>" height="55px" /></td>
                         <td><?php echo $record->imei ?></td>

@@ -24,7 +24,7 @@ foreach($redeemgift as $redeem) { ?>
     
 <p>Price: <strong class="price">₹ <?php echo $redeem->redeemgift_price ?></strong><br>
 Purchase Date:	  <strong><?php echo date("d-M-Y", strtotime($redeem->date_added)) ?></strong>
-<span>Points value: <strong class="value"><?php echo $redeem->redeem_value ?></strong></span></p>
+<span>Redeem value: <strong class="value"><?php echo $redeem->redeem_value ?></strong></span></p>
 </div>
 <br class="clr">
 </div>

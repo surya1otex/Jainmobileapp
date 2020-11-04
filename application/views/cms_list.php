@@ -2,15 +2,15 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-users"></i> Redeem Gift Management
-        <small>List </small>
+        <i class="fa fa-users"></i> Notification Management
+        <small>List</small>
       </h1>
     </section>
     <section class="content">
         <div class="row">
             <div class="col-xs-12 text-right">
                 <div class="form-group">
-                    <a class="btn btn-primary" href="<?php echo base_url(); ?>redeemgift/addNew"><i class="fa fa-plus"></i> Add New</a>
+                    <a class="btn btn-primary" href="<?php echo base_url(); ?>notification/addNew"><i class="fa fa-plus"></i> Add New</a>
                 </div>
             </div>
         </div>
@@ -18,11 +18,11 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Redeem Gift List</h3>
+                    <h3 class="box-title">Notification List</h3>
                     <div class="box-tools">
-                        <form action="<?php echo base_url() ?>redeemgift" method="POST" id="searchList">
+                        <form action="<?php echo base_url() ?>notification" method="POST" id="searchList">
                             <div class="input-group">
-                              <input type="text" name="searchText" value="<?php echo $searchText; ?>" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Price"/>
+                              <input type="text" name="searchText" value="<?php echo $searchText; ?>" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Message"/>
                               <div class="input-group-btn">
                                 <button class="btn btn-sm btn-default searchList"><i class="fa fa-search"></i></button>
                               </div>
@@ -33,43 +33,34 @@
                 <div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr><th>Sl</th>
-                        <th> User Name</th>
-                        <th>Gift Name</th>
-                        <th>Gift feature</th>
-                        <th>Gift Description
-                        <th>Gift Price</th>
-                        <th>Gift Image </th>
-                        <th>Redeem Value</th>
-                        <th>DAte Added</th>
-                        <th>Date Modified</th>
+                        <th>User Email</th>
+                        <th>Message</th>
+                        
+                        <th>Date Added</th>
+                        <th>Date Modified On</th>
                         <th class="text-center">Actions</th>
                     </tr>
-                   <?php $i=1;
-                    if(!empty($userRecords))
+                     <?php $i=1;
+                   if(!empty($userRecords))
                     {
-                        foreach($userRecords as $record)
+                      foreach($userRecords as $record)
                         {
                     ?>
-                    <tr> <td><?php echo $i ?></td>
-                         <td><?php echo $record->name ?></td>
-                         <td><?php echo $record->redeemgift_name ?></td>
-                         <td><?php echo $record->redeemgift_feature ?></td>
-                         <td><?php echo $record->redeemgift_desc ?></td>
-                         <td>₹ <?php echo $record->redeemgift_price ?></td>
-                         <td><img src="<?php echo base_url(); ?>uploads/photos/redeem/<?php
-                         echo $record->redeemgift_image ?>" height="55px" /></td>
-                         <td><?php echo $record->redeem_value ?></td>
-                         <td><?php echo date("d-m-Y", strtotime($record->date_added)) ?></td>
+                    <tr>
+                         <td><?php echo $i ?></td>
+                        <td><?php echo $record->email ?></td>
+                        <td><?php echo $record->message ?></td>
+                        
+                        <td><?php echo date("d-m-Y", strtotime($record->date_added)) ?></td>
                         <td><?php echo date("d-m-Y", strtotime($record->date_modified)) ?></td>
                         <td class="text-center">
-                            
-                            <a class="btn btn-sm btn-info" href="<?php echo base_url().'redeemgift/editOld/'.$record->redeemgift_id; ?>" title="Edit"><i class="fa fa-pencil"></i></a>
-                            <a class="btn btn-sm btn-danger deleteredeemgift" href="#" data-userid="<?php echo $record->redeemgift_id; ?>" title="Delete"><i class="fa fa-trash"></i></a>
+                           
+                            <a class="btn btn-sm btn-info" href="<?php echo base_url().'notification/editOld/'.$record->notification_id; ?>" title="Edit"><i class="fa fa-pencil"></i></a>
+                            <a class="btn btn-sm btn-danger deletenotification" href="#" data-userid="<?php echo $record->notification_id; ?>" title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     <?php
-                                               $i++;  }
-
+                       $i++;  }
                     }
                     ?>
                   </table>
@@ -90,16 +81,18 @@
             e.preventDefault();            
             var link = jQuery(this).get(0).href;            
             var value = link.substring(link.lastIndexOf('/') + 1);
-            jQuery("#searchList").attr("action", baseURL + "redeemgift/" + value);
+            jQuery("#searchList").attr("action", baseURL + "notification/" + value);
             jQuery("#searchList").submit();
         });
         
-         jQuery(document).on("click", ".deleteredeemgift", function(){
+        
+        
+        jQuery(document).on("click", ".deletenotification", function(){
 		var userId = $(this).data("userid"),
-			hitURL = baseURL + "deleteredeemgift",
+			hitURL = baseURL + "deletenotification",
 			currentRow = $(this);
 		
-		var confirmation = confirm("Are you sure to delete this  ?");
+		var confirmation = confirm("Are you sure to delete this ?");
 		
 		if(confirmation)
 		{
@@ -112,12 +105,10 @@
 				console.log(data);
 				currentRow.parents('tr').remove();
 				if(data.status = true) { alert(" successfully deleted"); }
-				else if(data.status = false) { alert(" deletion failed"); }
+				else if(data.status = false) { alert("deletion failed"); }
 				else { alert("Access denied..!"); }
 			});
 		}
 	});
-        
-        
     });
 </script>
