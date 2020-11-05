@@ -1,6 +1,6 @@
 
 <!-- body -->
-<form  id="submit">
+<form method="post" action="<?php echo base_url(); ?>updateaccount" enctype="multipart/form-data" role="form">
 <div class="profile_midsec">
 <div class="login_midsec">
 <div class="edit_profile">

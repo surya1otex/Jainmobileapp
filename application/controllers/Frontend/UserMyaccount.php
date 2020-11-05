@@ -69,12 +69,9 @@ class UserMyaccount  extends BaseController//extends CI_Controller
  
          $result= $this->Myaccount_model->editUser($userinfo,$userid);
 
-         if($result == TRUE) {
-             echo 'success';
-         }
-         else {
-            echo 'Failed';
-         }
+         redirect('userMyaccount');
+
+         //return $result;
     //}
 }
 
