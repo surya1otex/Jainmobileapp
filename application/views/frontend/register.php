@@ -28,10 +28,6 @@
 <div class="login_midsec">
 <form action="<?php echo base_url(); ?>registeruser" method="post">
 <div class="frm_div">
-<label>Name</label>
-<input name="name" type="text" required="required" placeholder="Enter your Name..">
-</div>
-<div class="frm_div">
 <label>Mobile No</label>
 <input name="mobile" type="text" required="required" placeholder="Enter your mobile no..">
 </div>
@@ -46,10 +42,6 @@
 <div class="frm_div">
 <label>Confirm Password</label>
 <input name="confirmpassword" type="password" required="required" placeholder="Confirm Password">
-</div>
-<div class="frm_div">
-<label>Address</label>
-<input name="address" type="text" required="required" placeholder="Your Address">
 </div>
 <input type="hidden" name="role" value="2">
 <input name="submit" type="submit" value="Create An Account">

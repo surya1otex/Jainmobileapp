@@ -24,11 +24,18 @@
 <h3>Collect <img src="<?php echo base_url(); ?>assets/frontend/img/down_arrow.png" alt=""></h3>
 </div>
     <div class="notification"><a href="<?php echo base_url(); ?>userNotifications"><img src="<?php echo base_url(); ?>assets/frontend/img/notification_icon.png" alt=""></a></div>
-<div class="pro_logout"><a href="<?php echo base_url(); ?>logoutuser"><img src="<?php echo base_url(); ?>assets/frontend/img/logout_icon.png" alt=""></a></div>
+<div class="pro_logout"><a href="<?php echo base_url(); ?>logoutuser">
+	<img src="<?php echo base_url(); ?>assets/frontend/img/logout_icon.png" alt=""></a></div>
 <div class="pro_pic">
 <h2><?php echo $userprofile->name ?>
 <span><?php echo $userprofile->usercode ?></span></h2>
+<?php
+if(empty($userprofile->image)) { ?>
 <img src="<?php echo base_url(); ?>assets/frontend/img/profile_pic.png" alt="">
+<?php
+}else { ?>
+<img src="<?php echo base_url(); ?>uploads/photos/profile/<?php echo $userprofile->image ?>" alt="" class="pro_pic_user" id="profile-img-tag">
+<?php } ?>
 <!-- Profile click !-->
 <div class="menu" style="display:none;">
 <ul>
@@ -85,6 +92,14 @@ Sales Summary</a></li>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="<?php echo base_url(); ?>assets/frontend/js/jquery-1.11.0.js"></script> 
 <!-- Script for detects HTML5 and CSS3 features in the user’s browser --> 
+<style type="text/css">
+	.pro_pic_user  {
+    border: 2px solid #4a5270;
+    border-radius: 50px;
+    padding: 2px;
+	height: 100px;
+	}
+</style>
 <script>
 $(document).ready(function(){
   $(".pro_pic").click(function(){

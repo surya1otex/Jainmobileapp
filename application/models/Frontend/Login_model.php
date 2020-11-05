@@ -8,7 +8,7 @@ class Login_model extends CI_Model
         $this->db->select('BaseTbl.userId, BaseTbl.password, BaseTbl.name, BaseTbl.roleId, BaseTbl.email, BaseTbl.mobile');
         $this->db->from('tbl_users as BaseTbl');
         //$this->db->join('tbl_roles as Roles','Roles.roleId = BaseTbl.roleId');
-        $this->db->where('BaseTbl.mobile', $mobile);
+        $this->db->where('BaseTbl.mobile', $mobile)->or_where('BaseTbl.email', $mobile);
         $this->db->where('BaseTbl.isDeleted', 0);
         //$this->db->where('Roles.role', 'User');
         $query = $this->db->get();

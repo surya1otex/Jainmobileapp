@@ -38,7 +38,7 @@ class Onlyforyou extends BaseController
 
             $this->global['pageTitle'] = 'jain mobile app : special offer Listing';
 
-            $this->loadViews("Onlyforyou_list", $this->global, $data, NULL);
+            $this->loadViews("onlyforyou_list", $this->global, $data, NULL);
         }
     }
 

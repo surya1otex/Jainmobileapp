@@ -41,8 +41,8 @@ if($success) { ?>
 <div class="login_midsec">
 <form action="<?php echo base_url(); ?>loginuser" method="post">
 <div class="frm_div">
-<label>User Mobile No</label>
-<input name="mobile" type="text" required="required" placeholder="Enter your user mobile..">
+<label>User Id/Mobile No</label>
+<input name="mobile" type="text" required="required" placeholder="Enter your user id..">
 </div>
 <div class="frm_div">
 <label>Password</label>
