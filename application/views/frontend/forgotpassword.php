@@ -20,7 +20,7 @@
 <!-- header -->
 <div class="header">
 <h1><a href="#"><img src="<?php echo base_url(); ?>assets/frontend/img/logo.png" alt=""></a></h1>
-<h2>Login</h2>
+<h2>Forgot password</h2>
 </div>
 <!-- header end-->
 
@@ -38,15 +38,16 @@ if($success) { ?>
 }
 ?>
 <!--<p><?php //echo validation_errors() ?></p>!-->
+<h3><?php echo validation_errors(); ?></h3>
 <div class="login_midsec">
-<form action="<?php echo base_url(); ?>forgotpass" method="post">
+<form action="<?php echo base_url(); ?>sendotp" method="post">
 <div class="frm_div">
 <label>Mobile No</label>
 <input name="mobile" type="text" required="required" placeholder="Enter your user id..">
 </div>
 
 
-<input name="" type="submit" value="Forgot Password">
+<input name="" type="submit" value="send OTP">
 
 </form>
 </div>

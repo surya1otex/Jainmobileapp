@@ -15,11 +15,15 @@ class UserSalessummary  extends BaseController//extends CI_Controller
     }
 
     public function index(){
-$userid=$this->session->userdata('userid');
-       // echo 'Hello World';
-       $this->global['pageTitle'] = 'Sales Summary';
-      //  $searchText = $this->security->xss_clean($this->input->post('searchText'));
-        //    $data['searchText'] = $searchText;
+
+        if(!isset($isLoggedIn) || $isLoggedIn != TRUE)
+        {
+
+               redirect('userLogin');
+        }
+        else {
+            $userid=$this->session->userdata('userid');
+            $this->global['pageTitle'] = 'Sales Summary';
 
              $fromdate = $this->input->post('fromdate');
              $todate = $this->input->post('todate');
@@ -39,6 +43,7 @@ $userid=$this->session->userdata('userid');
        $this->loadfrontViews("frontend/salessummary", $this->global, NULL, NULL, $data );
         
     }
+ }
 
    public function search() {
 
@@ -49,9 +54,13 @@ $userid=$this->session->userdata('userid');
 
        //echo $fromdate;
        $this->load->library('pagination');
+
+       $count = $this->UserSalessummery_model->salessummeryListingCount($userid);
        
-       
-       $data['userRecords'] = $this->UserSalessummery_model->searchdates($userid,$fromdate,$todate);
+       $returns = $this->paginationCompress("userSalessummary/", $count, 10);
+
+       $data['userRecords'] = $this->UserSalessummery_model->searchdates($userid,$fromdate,$todate,
+        $returns["page"],$returns["segment"]);
        $data['todate'] = $todate;
        $data['fromdate'] = $fromdate;
        $data['totalsummery'] = $this->UserSalessummery_model->totalsummery($userid,$fromdate,$todate);

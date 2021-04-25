@@ -25,23 +25,36 @@
 <!-- header end-->
 
 <!-- body -->
+<?php
+$error = $this->session->flashdata('error');
+$success = $this->session->flashdata('success');
+if($error) { ?>
+<p> <?php echo $this->session->flashdata('error'); ?> </p>
+<?php
+}
+if($success) { ?>
+<p> <?php echo $this->session->flashdata('success'); ?> </p>
+<?php
+}
+?>
+<h3><?php echo validation_errors(); ?></h3>
 <div class="login_midsec">
 <form action="<?php echo base_url(); ?>registeruser" method="post">
 <div class="frm_div">
 <label>Mobile No</label>
-<input name="mobile" type="text" required="required" placeholder="Enter your mobile no..">
+<input name="mobile" type="text"  placeholder="Enter your mobile no.." value="<?php echo set_value("mobile"); ?>">
 </div>
 <div class="frm_div">
 <label>Email ID</label>
-<input name="email" type="text" required="required" placeholder="Type your email id..">
+<input name="email" type="text"  placeholder="Type your email id.." value="<?php echo set_value("email"); ?>">
 </div>
 <div class="frm_div">
 <label>Password</label>
-<input name="password" type="password" required="required" placeholder="password">
+<input name="password" type="password"  placeholder="password" value="<?php echo set_value("password"); ?>">
 </div>
 <div class="frm_div">
 <label>Confirm Password</label>
-<input name="confirmpassword" type="password" required="required" placeholder="Confirm Password">
+<input name="confirmpassword" type="password"  placeholder="Confirm Password">
 </div>
 <input type="hidden" name="role" value="2">
 <input name="submit" type="submit" value="Create An Account">

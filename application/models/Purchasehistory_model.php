@@ -87,6 +87,10 @@ class Purchasehistory_model extends CI_Model
         return $this->db->affected_rows();
     }
 
+    function insert($data)
+    {
+        $this->db->insert_batch('tbl_purchase_history', $data);
+    }
     
 }
 

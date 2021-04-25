@@ -20,7 +20,7 @@
 <!-- header -->
 <div class="header">
 <h1><a href="#"><img src="<?php echo base_url(); ?>assets/frontend/img/logo.png" alt=""></a></h1>
-<h2>Login</h2>
+<h2>Enter One Time Password</h2>
 </div>
 <!-- header end-->
 
@@ -39,14 +39,14 @@ if($success) { ?>
 ?>
 <!--<p><?php //echo validation_errors() ?></p>!-->
 <div class="login_midsec">
-<form action="<?php echo base_url(); ?>otp" method="post">
+<form action="<?php echo base_url(); ?>resetpassword" method="post">
 
 <div class="frm_div">
 <label>Enter Otp</label>
 <input name="otp" type="password" required="required" placeholder="OTP">
 </div>
-
-<input name="" type="submit" value="Send">
+<input type="hidden" name="userid" value="<?php echo $userinfo->userId ?>">
+<input name="" type="submit" value="submit">
 
 
 </form>

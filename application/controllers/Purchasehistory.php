@@ -15,6 +15,7 @@ class Purchasehistory extends BaseController {
         $this->load->model('notification_model');
         $this->load->model('Purchasehistory_model');
          $this->load->library('form_validation');
+         $this->load->library('csvimport');
         $this->isLoggedIn();
     }
 
@@ -162,6 +163,30 @@ class Purchasehistory extends BaseController {
         }
     }
 
-}
+     function importPayout()
+     {
+
+     $this->loadViews('import_csv', $this->global);
+     }
+
+      function import() {
+     
+        $file_data = $this->csvimport->get_array($_FILES["csv_file"]["tmp_name"]);
+
+        foreach($file_data as $row)
+         {
+           $data[] = array(
+          'user_id' => 1,
+          'title' => $row["title"],
+          'amount'  => $row["amount"],
+          'description'   => $row["description"],
+          'date_added'   => date('Y-m-d H:i:s'),
+          'date_modified' =>date('Y-m-d H:i:s')
+          );
+        }
+      $result = $this->Purchasehistory_model->insert($data);
+      redirect('Purchasehistory');
+   }
+ }
 
 ?>

@@ -30,8 +30,7 @@ class UserProfile  extends BaseController//extends CI_Controller
        $id= $this->session->userdata('userid');
 
        $data['userprofile'] = $this->User_model->getUserInfo($id);
-
-
+       $data['slideimages'] = $this->User_model->slideshowlisting();
        $this->loadview("frontend/profile", $data);
 
       }

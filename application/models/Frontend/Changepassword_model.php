@@ -23,6 +23,19 @@ class Changepassword_model extends CI_Model
             return array();
         }
     }
+    function samepasswordcheck($oldpassword,$newpassword) {
+
+         if($oldpassword == $newpassword) {
+             $status = TRUE;
+         }
+         else {
+            $status = FALSE;
+        }
+
+        return $status;
+
+    }
+
     function changePassword($userId, $userInfo)
     {
         $this->db->where('userId', $userId);

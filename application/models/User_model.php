@@ -44,6 +44,16 @@ class User_model extends CI_Model
         return $result;
     }
     
+    function slideshowlisting() {
+        $this->db->select('BaseTbl.offer_image');
+        $this->db->from('tbl_specialoffer as BaseTbl');
+        $this->db->order_by('BaseTbl.specialoffer_id', 'DESC');
+        $query = $this->db->get();
+        $result = $query->result();
+
+        return $result;
+
+    }
   
     function getUserRoles()
     {

@@ -38,19 +38,21 @@ if($success) { ?>
 }
 ?>
 <!--<p><?php //echo validation_errors() ?></p>!-->
+<h3><?php echo validation_errors(); ?></h3>
 <div class="login_midsec">
 <form action="<?php echo base_url(); ?>loginuser" method="post">
 <div class="frm_div">
 <label>User Id/Mobile No</label>
-<input name="mobile" type="text" required="required" placeholder="Enter your user id..">
+<input name="mobile" type="text" placeholder="Enter your user id..">
 </div>
 <div class="frm_div">
 <label>Password</label>
-<input name="password" type="password" required="required" placeholder="password">
+<input name="password" type="password" placeholder="password">
 </div>
-<div class="frm_div login_rembtxt"><input name="" type="checkbox" value=""> Remember Password</div>
+<div class="frm_div login_rembtxt">
+	<input name="rememberme" type="checkbox" value="1"> Remember Password</div>
 <input name="" type="submit" value="Login">
-<p class="for_pass">Forgot Password?</p>
+<p class="for_pass"><a href="<?php echo base_url(); ?>userforgotPassword">Forgot Password?</a></p>
 <a href="<?php echo base_url(); ?>userRegistration" class="creat_accbutt">Create An Account</a>
 </form>
 </div>

@@ -177,45 +177,27 @@ class Onlyforyou extends BaseController
                 $userInfo['product_desc'] = $this->input->post('product_desc');
                 $userInfo['date_modified']= date('Y-m-d H:i:s');  
 
-                $this->load->library('upload');
-                 $this->load->library('image_lib');
+
                   if ($_FILES['onlyforyou_image']['name'] != "") {
-                    $value = $_FILES['onlyforyou_image']['name'];
-                    $config = array(
+                       $value = $_FILES['onlyforyou_image']['name'];
+                       $config = array(
                         'file_name' => $value,
                         'allowed_types' => 'jpg|jpeg|gif|png',
                         'upload_path' => './uploads/photos/onlyforyou/',
                         'overwrite' => FALSE,
                         'max_size' => 20000,
                     );
-                    $this->upload->initialize($config);
+
+                    $this->load->library('upload', $config);
+                    $this->load->library('image_lib', $config);
+                    $this->image_lib->resize();
                     // $this->load->library('upload', $config);
                     if (!$this->upload->do_upload('onlyforyou_image')) {
                         // return the error message and kill the script
                         echo $this->upload->display_errors() . 'File Type: ' . $this->upload->file_type;
                         die();
-                    } else {
-                        $flag = 1;
-                        $image_data = $this->upload->data('onlyforyou_image');
-                        $upName = $image_data['file_name'];
-
-                        $config = array(
-                            'source_image' => $image_data['full_path'],
-                            'new_image' => './uploads/photos/thumbs/',
-                            'maintain_ration' => true,
-                            'overwrite' => FALSE,
-                            'width' => 400,
-                            'height' => 310
-                        );
-                        $this->image_lib->initialize($config);
-                        // $this->load->library('image_lib', $config);
-                        $this->image_lib->resize();
                     }
 
-                    $img = $upName;
-                }
-
-                if ($this->upload->do_upload('onlyforyou_image')) {
                     $userInfo['onlyforyou_image'] = $value;
                 }
 

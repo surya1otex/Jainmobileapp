@@ -77,10 +77,6 @@ class Pricedrop extends BaseController {
                 $userInfo['description'] = $this->input->post('description');
                 $userInfo['product_name'] = $this->input->post('product_name');
 
-                $this->load->library('upload');
-
-                $this->load->library('image_lib');
-
                  if ($_FILES['product_image']['name'] != "") {
                     $value = $_FILES['product_image']['name'];
 
@@ -93,43 +89,17 @@ class Pricedrop extends BaseController {
                     );
                     //
                     $this->load->library('upload', $config);
-                     $this->upload->initialize($config);
-
-
+                    $this->load->library('image_lib', $config);
+                    $this->image_lib->resize();
 
                     if (!$this->upload->do_upload('product_image')) {
                         // return the error message and kill the script
                         echo $this->upload->display_errors() . 'File Type: ' . $this->upload->file_type;
                         die();
-
-
-                    } else {
-                        $flag = 1;
-                        $image_data = $this->upload->data('product_image');
-                        $upName = $image_data['file_name'];
-
-                        $config = array(
-                            'source_image' => $image_data['full_path'],
-                            'new_image' => './uploads/photos/thumbs/',
-                            'maintain_ration' => true,
-                            'overwrite' => FALSE,
-                            'width' => 400,
-                            'height' => 210
-                        );
-
-                        $this->load->library('image_lib', $config);
-                        $this->image_lib->resize();
                     }
 
-                    $img = $upName;
-
-                } else {
-                    $img = $this->input->post('product_image');
-                }
-                
-                
-                
-                $userInfo['product_image'] = $value;
+                    $userInfo['product_image'] = $value;
+                } 
                 $userInfo['date_added'] = date('Y-m-d H:i:s');
                 $userInfo['date_modified'] = date('Y-m-d H:i:s');
 
@@ -185,53 +155,34 @@ class Pricedrop extends BaseController {
                 $userInfo['feature'] = $this->input->post('feature');
                 $userInfo['description'] = $this->input->post('description');
                 $userInfo['product_name'] = $this->input->post('product_name');
+                $userInfo['date_modified'] = date('Y-m-d H:i:s');
                
-                $this->load->library('upload');
-                 $this->load->library('image_lib');
+                //$this->load->library('upload');
+                 //$this->load->library('image_lib');
+
                   if ($_FILES['product_image']['name'] != "") {
-                    $value = $_FILES['product_image']['name'];
-                    $config = array(
+                      $value = $_FILES['product_image']['name'];
+                      $config = array(
                         'file_name' => $value,
                         'allowed_types' => 'jpg|jpeg|gif|png',
                         'upload_path' => './uploads/photos/large/',
                         'overwrite' => FALSE,
                         'max_size' => 20000,
                     );
-                    $this->upload->initialize($config);
+                    $this->load->library('upload', $config);
+                    $this->load->library('image_lib', $config);
+                    $this->image_lib->resize();
                     // $this->load->library('upload', $config);
                     if (!$this->upload->do_upload('product_image')) {
                         // return the error message and kill the script
                         echo $this->upload->display_errors() . 'File Type: ' . $this->upload->file_type;
                         die();
-                    } else {
-                        $flag = 1;
-                        $image_data = $this->upload->data('product_image');
-                        $upName = $image_data['file_name'];
-
-                        $config = array(
-                            'source_image' => $image_data['full_path'],
-                            'new_image' => './uploads/photos/thumbs/',
-                            'maintain_ration' => true,
-                            'overwrite' => FALSE,
-                            'width' => 400,
-                            'height' => 310
-                        );
-                        $this->image_lib->initialize($config);
-                        // $this->load->library('image_lib', $config);
-                        $this->image_lib->resize();
                     }
 
-                    $img = $upName;
+                    $userInfo['product_image'] = $value; 
                 }
-                if ($this->upload->do_upload('product_image')) {
-                    $userInfo['product_image'] = $value;
-                }
+
                 
-                
-                
-                
-                $userInfo['date_added'] = date('Y-m-d H:i:s');
-                $userInfo['date_modified'] = date('Y-m-d H:i:s');
 
                 $result = $this->Pricedrop_model->edit($userInfo, $id);
 

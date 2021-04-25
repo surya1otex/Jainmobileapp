@@ -15,6 +15,8 @@
 <link href="<?php echo base_url(); ?>assets/frontend/css/style.css" rel="stylesheet" type="text/css">
 <!-- Media queries CSS -->
 <link href="<?php echo base_url(); ?>assets/frontend/css/media-queries.css" rel="stylesheet" type="text/css">
+<link href="<?php echo base_url(); ?>assets/frontend/css/slider.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -27,6 +29,7 @@
 <div class="pro_logout"><a href="<?php echo base_url(); ?>logoutuser">
 	<img src="<?php echo base_url(); ?>assets/frontend/img/logout_icon.png" alt=""></a></div>
 <div class="pro_pic">
+
 <h2><?php echo $userprofile->name ?>
 <span><?php echo $userprofile->usercode ?></span></h2>
 <?php
@@ -40,7 +43,10 @@ if(empty($userprofile->image)) { ?>
 <div class="menu" style="display:none;">
 <ul>
 <li><span><img src="<?php echo base_url(); ?>assets/frontend/img/menu_icon1.png" alt=""></span>
-	<a href="<?php echo base_url(); ?>userMyaccount" class="active"><?php echo $userprofile->name ?>’s Home</a></li>
+	<a href="<?php echo base_url(); ?>userMyaccount" class="active">
+    <?php
+     if(!empty($userprofile->name)) {
+     echo $userprofile->name.'’s' ; } ?> Home</a></li>
 <li><span><img src="<?php echo base_url(); ?>assets/frontend/img/menu_icon2.png" alt=""></span><a href="tel:+1-847-555-5555">Call To Us</a></li>
 <li><span><img src="<?php echo base_url(); ?>assets/frontend/img/menu_icon3.png" alt=""></span><a href="<?php echo base_url(); ?>changemypassword">Change Password</a></li>
 <li><span><img src="<?php echo base_url(); ?>assets/frontend/img/menu_icon4.png" alt=""></span><a href="<?php echo base_url(); ?>termsconditions">Terms & Conditions</a></li>
@@ -62,7 +68,29 @@ if(empty($userprofile->image)) { ?>
 <h3 class="estate"><span>Estate:</span> Jain’s</h3>
 </div>
 <div class="proright_logo"><img src="<?php echo base_url(); ?>assets/frontend/img/profile_logo.png" alt=""></div>
-<div class="prof_addbanner"><img src="<?php echo base_url(); ?>assets/frontend/img/pro_banner.png" alt=""></div>
+<div class="prof_addbanner">
+<!-- slider banner images !-->
+<div id="wowslider-container">
+   <div class="ws_images">
+     <ul>
+      <?php
+      if(!empty($slideimages))
+         {
+          foreach ($slideimages as $images)
+           {
+            ?>
+      <li><img src="<?php echo base_url(); ?>uploads/photos/special/<?php echo $images->offer_image ?>" alt=""></li>
+      <?php
+      }
+    }
+  ?>
+    </ul>
+   </div>
+<div class="ws_shadow"></div>
+</div>
+<!-- end of banner images !-->
+
+</div>
 <div class="profile_tab">
 <ul>
 <li>
@@ -90,14 +118,17 @@ Sales Summary</a></li>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="<?php echo base_url(); ?>assets/frontend/js/jquery-1.11.0.js"></script> 
+<!--<script src="<?php echo base_url(); ?>assets/frontend/js/jquery-1.11.0.js"></script>!-->
+
+<script src="<?php echo base_url(); ?>assets/frontend/js/wowslider.js"></script>
+<script src="<?php echo base_url(); ?>assets/frontend/js/script.js"></script>
 <!-- Script for detects HTML5 and CSS3 features in the user’s browser --> 
 <style type="text/css">
 	.pro_pic_user  {
     border: 2px solid #4a5270;
     border-radius: 50px;
     padding: 2px;
-	height: 100px;
+	  height: 100px;
 	}
 </style>
 <script>
@@ -106,6 +137,7 @@ $(document).ready(function(){
     $(".menu").toggle();
   });
 });
+
 </script>
 </body>
 </html>

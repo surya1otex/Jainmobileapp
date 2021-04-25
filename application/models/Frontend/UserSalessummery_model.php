@@ -32,7 +32,7 @@ class UserSalessummery_model extends CI_Model {
         return $result;
     }
 
-   function searchdates($userid,$start_date,$end_date) {
+   function searchdates($userid,$start_date,$end_date,$page,$segment) {
 
     $this->db->select("*");
     $this->db->from('tbl_sales_summery');
@@ -41,6 +41,8 @@ class UserSalessummery_model extends CI_Model {
     $this->db->where("DATE_FORMAT(date_added,'%Y') <='$end_date'");
     //$this->db->select_sum('amount');
     $this->db->where('tbl_sales_summery.user_id', $userid);
+    $this->db->order_by('tbl_sales_summery.sales_summery_id', 'DESC');
+    $this->db->limit($page, $segment);
     $query = $this->db->get();
     return $query->result();
 

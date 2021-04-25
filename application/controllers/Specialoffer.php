@@ -71,11 +71,7 @@ class Specialoffer extends BaseController {
            $this->form_validation->set_rules('regular_price', 'Regular Price',  'required');
 
            $this->form_validation->set_rules('offer_desc', 'Offer Description',  'required');
-           
-
-           // $this->form_validation->set_rules('offer_image', 'offer image',  'required');
-           
-
+                    
             if ($this->form_validation->run() == FALSE) {
                 $this->addNew();
             } else {
@@ -168,11 +164,10 @@ class Specialoffer extends BaseController {
                 $userInfo['offer_description'] = $this->input->post('offer_desc');
                 
                 $userInfo['date_modified']= date('Y-m-d H:i:s');  
-
-                  $this->load->library('upload');
                   if ($_FILES['offer_image']['name'] != "") {
-                    $value = $_FILES['offer_image']['name'];
-                    $config = array(
+                        $value = $_FILES['offer_image']['name'];
+
+                        $config = array(
                         'file_name' => $value,
                         'allowed_types' => 'jpg|jpeg|gif|png',
                         'upload_path' => './uploads/photos/special/',
@@ -180,35 +175,18 @@ class Specialoffer extends BaseController {
                         'max_size' => 20000,
                     );
 
-                    $this->upload->initialize($config);
-                    //$this->upload->initialize($config);
-                    // $this->load->library('upload', $config);
+                    $this->load->library('upload', $config);
+                    $this->load->library('image_lib', $config);
+                    $this->image_lib->resize();
+
                     if (!$this->upload->do_upload('offer_image')) {
                         // return the error message and kill the script
                         echo $this->upload->display_errors() . 'File Type: ' . $this->upload->file_type;
                         die();
-                    } else {
-                        $flag = 1;
-                        $image_data = $this->upload->data('offer_image');
-                        $upName = $image_data['file_name'];
+                    } 
 
-                        $config = array(
-                            'source_image' => $image_data['full_path'],
-                            'new_image' => './uploads/photos/thumbs/',
-                            'maintain_ration' => true,
-                            'overwrite' => FALSE,
-                            'width' => 400,
-                            'height' => 310
-                        );
-                        //$this->image_lib->initialize($config);
-                        // $this->load->library('image_lib', $config);
-                        //$this->image_lib->resize();
-                    }
-
-                    $img = $upName;
-                }
-                if ($this->upload->do_upload('offer_image')) {
                     $userInfo['offer_image'] = $value;
+
                 }
                 $result = $this->specialoffer_model->edit($userInfo, $id);
 

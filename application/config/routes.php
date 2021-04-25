@@ -158,6 +158,9 @@ $route['userFeedback'] = "Frontend/UserFeedback";
 $route['updateaccount'] = "Frontend/UserMyaccount/updateprofile";
 $route['termsconditions'] = "Frontend/UserTermcondition";
 $route['changemypassword'] = "Frontend/Changepassword";
-$route['updatepassword'] = "Frontend/Changepassword/changePassword";
+$route['updatepassword'] = "Frontend/Changepassword/changepassword";
 
-
+$route['userforgotPassword'] = "Frontend/Forgotpassword";
+$route['sendotp'] = "Frontend/Forgotpassword/otp";
+$route['resetpassword'] = "Frontend/Forgotpassword/resetpassword";
+//$route['updatepassword'] = "Frontend/Forgotpassword/updatepassword";
